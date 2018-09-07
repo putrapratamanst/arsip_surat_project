@@ -16,10 +16,10 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
-        'response' => [
-        'format' => yii\web\Response::FORMAT_JSON,
-        'charset' => 'UTF-8',
-    ],
+    //     'response' => [
+    //     'format' => yii\web\Response::FORMAT_JSON,
+    //     'charset' => 'UTF-8',
+    // ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
