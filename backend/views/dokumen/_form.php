@@ -13,7 +13,17 @@ $listletak=ArrayHelper::map($letak,'id','letak_penyimpanan');
 $posisi=Posisi::find()->all();
 $listposisi=ArrayHelper::map($posisi,'id','posisi');
 ?>
-
+<div class="mahasiswa-index">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+                
+            <h1><?= Html::encode($this->title) ?></h1>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
 <div class="dokumen-form">
 
   <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],'layout' => 'horizontal',
@@ -59,4 +69,14 @@ $listposisi=ArrayHelper::map($posisi,'id','posisi');
 
     <?php ActiveForm::end(); ?>
 
+</div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
 </div>

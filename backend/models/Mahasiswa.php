@@ -29,6 +29,7 @@ class Mahasiswa extends \yii\db\ActiveRecord
             [['npm', 'nama','email'], 'required'],
             [['npm'], 'integer'],
             [['email'], 'email'],
+            [['email'], 'unique'],
             [['nama','email'], 'string', 'max' => 100],
         ];
     }

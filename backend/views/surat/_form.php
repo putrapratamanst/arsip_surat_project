@@ -8,7 +8,18 @@ use dosamigos\ckeditor\CKEditor;
 /* @var $model frontend\models\Surat */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<div class="mahasiswa-index">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+                <h1><?= Html::encode($this->title) ?></h1>
+                
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+    
 <div class="surat-form">
 
 
@@ -55,4 +66,14 @@ use dosamigos\ckeditor\CKEditor;
 
     <?php ActiveForm::end(); ?>
 
+</div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
 </div>

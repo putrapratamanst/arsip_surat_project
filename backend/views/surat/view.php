@@ -10,7 +10,13 @@ $this->title = $model->nama;
 $this->params['breadcrumbs'][] = ['label' => 'Surats', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="surat-view">
+<div class="mahasiswa-index">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -51,4 +57,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
 </div>

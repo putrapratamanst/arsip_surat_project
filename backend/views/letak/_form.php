@@ -7,7 +7,16 @@ use yii\helpers\ArrayHelper;
 
 ?>
 
-<div class="letak-form">
+<div class="letak-index">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h1><?= Html::encode($this->title) ?></h1>
+              <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+            </div>
+            <!-- /.box-header -->
 
   <?php $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
 
@@ -74,4 +83,12 @@ use yii\helpers\ArrayHelper;
 
       <?php ActiveForm::end(); ?>
 
-  </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+</div>

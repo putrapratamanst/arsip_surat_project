@@ -10,6 +10,13 @@ $this->title = $model->nama_dokumen;
 $this->params['breadcrumbs'][] = ['label' => 'Dokumens', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="mahasiswa-index">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
 <div class="dokumen-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -43,4 +50,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
 </div>
