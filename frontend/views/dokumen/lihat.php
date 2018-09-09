@@ -31,7 +31,7 @@ $this->title = $model->nama_dokumen;
            // 'id',
             'nama_dokumen',
             'letakKu.letak_penyimpanan',
-            'letakKu.letakPosisi.posisi',
+            
 
         ],
     ]) ?>

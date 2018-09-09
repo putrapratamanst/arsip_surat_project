@@ -37,7 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             'nama_dokumen',
                             'letak',
                             'tahun',
-                            'posisi',
 
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
