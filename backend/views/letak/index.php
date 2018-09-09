@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\LetakSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Letak';
+$this->title = 'Folder';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

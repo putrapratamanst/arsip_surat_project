@@ -5,6 +5,7 @@ use yii\bootstrap\ActiveForm;
 use backend\models\Letak;
 use backend\models\Posisi;
 use yii\helpers\ArrayHelper;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Dokumen */
 /* @var $form yii\widgets\ActiveForm */
@@ -39,16 +40,14 @@ $listposisi=ArrayHelper::map($posisi,'id','posisi');
                                   ],]); ?>
     <?= $form->field($model, 'nama_dokumen')->textInput(['maxlength' => true]) ?>
 
-  <?= $form->field($model, 'letak')->dropDownList(ArrayHelper::map(Letak::find()->asArray()->all(),'id','letak_penyimpanan'), ['prompt'=>'-Pilih Letak -',
-      'onchange'=>'
-                  $.post("/posisi/lists/'.'"+$(this).val(),
-                  function( data ){
-                   $( "select#dokumen-posisi" ).html(data);
-              });' ]
+  <?= $form->field($model, 'letak')->dropDownList(ArrayHelper::map(Letak::find()->asArray()->all(),'id','letak_penyimpanan'), ['prompt'=>'-Pilih Letak -']
     ); ?>     
-  <?= $form->field($model, 'posisi')->dropDownList(ArrayHelper::map(Posisi::find()->asArray() ->all(),'id','posisi'),['prompt'=>'-Pilih Posisi -']); ?>
+  
 
            <?= $form->field($model, 'tahun')->textInput(['maxlength' => true]) ?>
+
+          <?= $form->field($model, 'file_url')->fileInput()->label('Upload File') ?>
+
 
 
    <div class="form-group">

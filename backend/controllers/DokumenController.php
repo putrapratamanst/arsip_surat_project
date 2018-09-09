@@ -8,7 +8,7 @@ use backend\models\DokumenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
 /**
  * DokumenController implements the CRUD actions for Dokumen model.
  */
@@ -33,23 +33,23 @@ class DokumenController extends Controller
      * Lists all Dokumen models.
      * @return mixed
      */
-    // public function actionIndex()
-    // {
-    //     $searchModel = new DokumenSearch();
-    //     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-    //     return $this->render('index', [
-    //         'searchModel' => $searchModel,
-    //         'dataProvider' => $dataProvider,
-    //     ]);
-    // }
     public function actionIndex()
     {
-        $model = Dokumen::find()->groupBy('letak')->all();    
+        $searchModel = new DokumenSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
-            'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
+    // public function actionIndex()
+    // {
+    //     $model = Dokumen::find()->groupBy('letak')->all();    
+    //     return $this->render('index', [
+    //         'model' => $model,
+    //     ]);
+    // }
     public function actionList($id)
     {
         $model = Dokumen::find()->where(['letak'=>$id])->all();    
@@ -156,11 +156,29 @@ class DokumenController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
+    
+    public function actionUnduh($id) 
+    { 
+        $download = Dokumen::findOne($id); 
+        $path = Yii::getAlias('@webroot').'/uploads/'.$download->file_url;
+
+        if (file_exists($path)) {
+            return Yii::$app->response->sendFile($path);
+            Yii::app()->end();
+        }
+    }
+
     public function actionCreate()
     {
         $model = new Dokumen();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file_url = UploadedFile::getInstance($model, 'file_url');
+            if ($model->file_url && $model->validate()) {                
+               $model->file_url->saveAs('uploads/' . $model->file_url->baseName . '.' . $model->file_url->extension);
+           }            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

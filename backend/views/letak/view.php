@@ -41,29 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                     ]) ?>
             </table>
-            <div class="nilai-view">
-            <h4>Posisi</h4>
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Nama Posisi</th>
-                
-
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($modelsNilai as $i => $modelNilai): ?>
-            <tr>
-
-            <td> <?= $modelNilai->posisi?> </td>
-             
-            </tr>
-
-            <?php endforeach; ?>
-            </tbody>
-            </table>
-
-            </div>
 
             </div>
             <!-- /.box-body -->

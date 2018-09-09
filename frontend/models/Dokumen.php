@@ -29,6 +29,8 @@ class Dokumen extends \yii\db\ActiveRecord
         return [
             [['nama_dokumen', 'letak'], 'required'],
             [['nama_dokumen', 'letak','tahun'], 'string', 'max' => 100],
+            [['file_url'], 'file'],
+            
         ];
     }
 

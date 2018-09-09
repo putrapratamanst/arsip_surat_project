@@ -30,10 +30,16 @@ $this->title = $model->nama_dokumen;
            // 'id',
             'nama_dokumen',
             'letakKu.letak_penyimpanan',
-            'letakKu.letakPosisi.posisi',
 
         ],
     ]) ?>
+        <div class="gambar" style="text-align: center">
+      <a href="unduh?id=<?=$model->id?>">
+        <img src="<?= Yii::getAlias('@web/uploads/') ?>file.png" alt="User Image" height="100">
+    <h3>Download File: <?=$model->file_url;?> </h3> <br>
+      </a>
+    </div>
+
 <p>
   <?php if($model->nama_dokumen =="laporan internship" and $model->tahun==2018 or$model->nama_dokumen =="internship" and $model->tahun==2018  or$model->nama_dokumen =="laporan observasi" and $model->tahun==2018 or $model->nama_dokumen =="observasi" and $model->tahun==2018 ){?>
   <?php /*if($model->nama_dokumen =="laporan internship" and $model->tahun==2018 or$model->nama_dokumen =="internship" and $model->tahun==2018 or$model->nama_dokumen =="surat internship" and $model->tahun==2018 or$model->nama_dokumen =="laporan observasi" and $model->tahun==2018 or $model->nama_dokumen =="observasi" and $model->tahun==2018 ){ */ ?>

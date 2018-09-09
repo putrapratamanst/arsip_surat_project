@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\Dokumen;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Dokumen */
@@ -44,12 +45,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // /'id',
             'nama_dokumen',
             'letakKu.letak_penyimpanan',
-            'letakKu.letakPosisi.posisi',
-
             'tahun',
         ],
     ]) ?>
-
+    <div class="gambar" style="text-align: center">
+      <a href="unduh?id=<?=$model->id?>">
+        <img src="<?= Yii::getAlias('@web/uploads/') ?>file.png" alt="User Image" height="100">
+    <h3>Download File: <?=$model->file_url;?> </h3> <br>
+      </a>
+    </div>
 </div>
             </div>
             <!-- /.box-body -->

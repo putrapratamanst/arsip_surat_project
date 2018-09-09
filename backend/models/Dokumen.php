@@ -27,8 +27,9 @@ class Dokumen extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama_dokumen', 'letak','tahun'], 'required'],
+            [['nama_dokumen', 'letak','tahun','file_url'], 'required'],
             [['nama_dokumen', 'letak','posisi'], 'string', 'max' => 100],
+            [['file_url'], 'file'],
         ];
     }
 
@@ -47,4 +48,15 @@ class Dokumen extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Letak::className(), ['id' => 'letak']);
     }
+
+     public function upload()
+    {
+        if ($this->validate()) {
+            $this->file_url->saveAs('uploads/' . $this->file_url->baseName . '.' . $this->file_url->extension);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }

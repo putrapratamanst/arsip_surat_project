@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Letak */
 
-$this->title = 'Create Letak';
+$this->title = 'Create Folder';
 $this->params['breadcrumbs'][] = ['label' => 'Letaks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'modelsNilai'=>  $modelsNilai,
 
     ]) ?>
 

@@ -34,6 +34,16 @@ class DokumenController extends Controller
      * Lists all Dokumen models.
      * @return mixed
      */
+    public function actionUnduh($id) 
+    { 
+        $download = Dokumen::findOne($id); 
+        $path = Yii::getAlias('@backend').'/web/uploads/'.$download->file_url;
+
+        if (file_exists($path)) {
+            return Yii::$app->response->sendFile($path);
+            Yii::app()->end();
+        }
+    }
     public function actionIndex()
     {
         $searchModel = new DokumenSearch();

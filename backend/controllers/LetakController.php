@@ -56,11 +56,9 @@ class LetakController extends Controller
    public function actionView($id)
       {
         $model = $this->findModel($id);
-        $modelsNilai = $model->posisiku;
 
         return $this->render('view',[
           'model'=> $model,
-          'modelsNilai' => (empty($modelsNilai)) ? [new Nilai] : $modelsNilai,
         ]);
 
             }
@@ -73,60 +71,12 @@ class LetakController extends Controller
    public function actionCreate()
    {
         $model = new Letak();
-      // $model->user_id = \Yii::$app->user->identity->id;
-      // $model->npm = \Yii::$app->user->identity->username;
 
-
-        $modelsNilai = [new Posisi];
-
-
-       if ($model->load(Yii::$app->request->post())){
-         // $model->waktu_daftar = date('Y-m-d h:m:s');
-
-         $model->save();
-    
-   $modelsNilai = Tabular::createMultiple(Posisi::classname());
-           Tabular::loadMultiple($modelsNilai, Yii::$app->request->post());
-
-
-           // validate all models
-           $valid = $model->validate();
-           $valid = Tabular::validateMultiple($modelsNilai) && $valid;
-
-
-           if ($valid) {
-               $transaction = \Yii::$app->db->beginTransaction();
-               try {
-                   if ($flag = $model->save(false)) {
-                       foreach ($modelsNilai as $indexTools =>$modelNilai) {
-                           $modelNilai->id_letak = $model->id;
-                       //    $modelNilai->user_id = \Yii::$app->user->identity->id;
-
-                           if (! ($flag = $modelNilai->save(false))) {
-                               $transaction->rollBack();
-                               break;
-                           }
-                       }
-                   }
-                   if ($flag) {
-                       $transaction->commit();
-                       return $this->redirect(['view', 'id' => $model->id]);
-                   }
-               } catch (Exception $e) {
-                   $transaction->rollBack(); \Yii::$app->session->setFlash('error','gagal');
-               }
-
-       }else{
-        echo "gagal";
-       }
-
+      if ($model->load(Yii::$app->request->post()) &&  $model->save()){
+        return $this->redirect(['view', 'id' => $model->id]);
        } else {
            return $this->render('create', [
                'model' => $model,
-                'modelsNilai' => (empty($modelsNilai)) ? [new Posisi] : $modelsNilai,
-
-
-
            ]);
        }
    }
@@ -141,55 +91,12 @@ class LetakController extends Controller
     public function actionUpdate($id)
      {
          $model = $this->findModel($id);
-         $modelsNilai = $model->posisiku;
 
-
-
-         if ($model->load(Yii::$app->request->post())) {
-
-             $oldIDs = ArrayHelper::map($modelsNilai, 'id', 'id');
-             $modelsNilai = Tabular::createMultiple(Posisi::classname(), $modelsNilai);
-             Tabular::loadMultiple($modelsNilai, Yii::$app->request->post());
-             $deletedIDs = array_diff($oldIDs, array_filter(ArrayHelper::map($modelsNilai, 'id', 'id')));
-
-             // ajax validation
-
-
-             // validate all models
-             $valid = $model->validate();
-             $valid = Tabular::validateMultiple($modelsNilai) && $valid;
-
-             if ($valid) {
-                 $transaction = \Yii::$app->db->beginTransaction();
-                 try {
-                     if ($flag = $model->save(false)) {
-                         if (! empty($deletedIDs)) {
-                             Posisi::deleteAll(['id' => $deletedIDs]);
-                         }
-                         foreach ($modelsNilai as $modelNilai) {
-                             $modelNilai->id_letak = $model->id;
-                            // $modelNilai->user_id = \Yii::$app->user->identity->id;
-
-                             if (! ($flag = $modelNilai->save(false))) {
-                                 $transaction->rollBack();
-                                 break;
-                             }
-                         }
-                     }
-                     if ($flag) {
-                         $transaction->commit();
-                         return $this->redirect(['view', 'id' => $model->id]);
-                     }
-                 } catch (Exception $e) {
-                     $transaction->rollBack();
-                 }
-
-         }
-
+         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          return $this->redirect(['view', 'id' => $model->id]);
          } else {
              return $this->render('update', [
                  'model' => $model,
-                 'modelsNilai' => (empty($modelsNilai)) ? [new Posisi] : $modelsNilai
              ]);
          }
      }

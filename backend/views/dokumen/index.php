@@ -27,13 +27,21 @@ $this->params['breadcrumbs'][] = $this->title;
             <!-- /.box-header -->
             <div class="box-body">
             <table id="example2" class="table table-bordered table-hover">
+                    <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'summary' => "",
+                        'filterModel' => $searchModel,
+                        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn'],
 
-    <?php 
-    foreach ($model as $key => $value) {?>
-    <a href="/dokumen/list?id=<?=$value->letak?>"><?=$value->letakKu->letak_penyimpanan;?><img src="<?= Yii::getAlias('@web/uploads/') ?>folder.png" height="100"></a> &nbsp;
+                            'nama_dokumen',
+                            'letak',
+                            'tahun',
+                            'posisi',
 
-<?php } ?>
-
+                            ['class' => 'yii\grid\ActionColumn'],
+                        ],
+                    ]); ?>
 </div>
  </table>
             </div>

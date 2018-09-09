@@ -119,7 +119,7 @@ t
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/surat/index"><i class="fa fa-tags"></i> <span>Surat</span></a></li>
         <li><a href="/mahasiswa/index"><i class="glyphicon glyphicon-user"></i> <span>Mahasiswa</span></a></li>
-        <li><a href="/letak/index"><i class="glyphicon glyphicon-folder-open"></i> <span>Letak</span></a></li>
+        <li><a href="/letak/index"><i class="glyphicon glyphicon-folder-open"></i> <span>Folder</span></a></li>
         <li><a href="/dokumen/index"><i class="fa fa-calendar-check-o"></i> <span>Dokumen</span></a></li>
        
         <li><a href="/site/logout"><i class="glyphicon glyphicon-off"></i> <span>Logout</span></a></li>
