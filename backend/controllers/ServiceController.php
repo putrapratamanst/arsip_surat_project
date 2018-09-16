@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Mahasiswa;
+use backend\models\Dokumen;
 use backend\models\Surat;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -85,6 +86,38 @@ class ServiceController extends Controller
             'npm' => $models->npm,
             'nama' => $models->nama,
             'email' => $models->email,
+        ];
+
+        return json_encode($model,JSON_UNESCAPED_SLASHES);
+    }
+    public function actionGetAllDokumen()
+    {
+        $model = Dokumen::find()->all();
+
+        $modelNew = [];
+        foreach ($model as $key => $value) {
+        $modelNew []= [
+            'nama_dokumen' => $value->attributes['nama_dokumen'],
+            'tahun' => $value->attributes['tahun'],
+            'letak' => $value->letakKu->attributes['letak_penyimpanan'],
+        ];
+
+        }
+        return json_encode($modelNew,JSON_UNESCAPED_SLASHES);
+    }
+
+    /**
+     * Displays a single Dokumen model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionGetOneDokumen($id)
+    {
+        $models = Dokumen::find()->where(['id'=>$id])->one();
+        $model[] = [
+            'nama_dokumen' => $models->nama_dokumen,
+            'tahun' => $models->tahun,
+            'letak' => $models->letakKu->letak_penyimpanan,
         ];
 
         return json_encode($model,JSON_UNESCAPED_SLASHES);
