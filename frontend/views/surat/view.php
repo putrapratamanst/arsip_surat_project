@@ -57,7 +57,7 @@ $this->title = $model->nama;
 }
  
 </style>
-<?php if($model->status=="ACTIVE"){?>
+<?php if($model->status=="APPROVE"){?>
   <p>
           <?= Html::a('<span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Back',
        ['/site/index'],

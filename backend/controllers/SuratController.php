@@ -85,7 +85,7 @@ class SuratController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->status = "ACTIVE";
+        $model->status = "APPROVE";
         if ($model->load(Yii::$app->request->post())) {
             $nama = Mahasiswa::find()->where([ "npm" => $model->npm ])->asArray()->all();
             // $model->nama = $nama[0]['nama'];
