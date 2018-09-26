@@ -108,8 +108,9 @@ $bulan = substr($model->tanggal,-5,-3);
       <br>
         Nomor:    <?php echo $model->no_surat; ?><br>
 Perihal:    <?php echo $model->perihal; ?><br>
-
- <?php echo $model->tujuan; ?>
+<!-- Tempat: <?php echo $model->tempat; ?><br> -->
+<?php echo $model->tujuan; ?>
+ 
  <br>
   <?php echo $model->isi; ?>
 

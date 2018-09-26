@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-  <h1>Sistem Informasi Surat</h1>
+  <h1>Sistem Informasi Surat Dan Dokumen</h1>
   <div class="w3ls-login box">
     <img src="<?= Yii::getAlias('@web/theme/') ?>dist/img/logo.png" class="img-responsive" alt="User Image" height="300">
     <!-- form starts here -->

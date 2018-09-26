@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Mahasiswa;
+use backend\models\Letak;
 use backend\models\Dokumen;
 use backend\models\Surat;
 use yii\web\Controller;
@@ -72,6 +73,30 @@ class ServiceController extends Controller
 
         }
         return json_encode($modelNew,JSON_UNESCAPED_SLASHES);
+    }
+    public function actionGetAllLetak()
+    {
+        $model = Letak::find()->all();
+
+        $modelNew = [];
+        foreach ($model as $key => $value) {
+        $modelNew []= [
+            'id' => $value->attributes['id'],
+            'letak_penyimpanan' => $value->attributes['letak_penyimpanan'],
+        ];
+
+        }
+        return json_encode($modelNew,JSON_UNESCAPED_SLASHES);
+    }
+    public function actionGetOneLetak($id)
+    {
+        $models = Letak::find()->where(['id'=>$id])->one();
+        $model[] = [
+            'id' => $models->id,
+            'letak_penyimpanan' => $models->letak_penyimpanan,
+        ];
+
+        return json_encode($model,JSON_UNESCAPED_SLASHES);
     }
 
     /**

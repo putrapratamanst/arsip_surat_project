@@ -44,7 +44,7 @@ $listposisi=ArrayHelper::map($posisi,'id','posisi');
     ); ?>     
   
 
-           <!-- $form->field($model, 'tahun')->textInput(['maxlength' => true]) -->
+          <!--  <?= $form->field($model, 'tahun')->textInput(['maxlength' => true]) ?> -->
            <?= $form->field($model, 'tahun')->dropDownList(
                        [
                         '2001' => '2001', 
