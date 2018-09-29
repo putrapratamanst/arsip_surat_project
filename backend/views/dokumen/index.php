@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['class' => 'yii\grid\SerialColumn'],
 
                             'nama_dokumen',
-                            'letak',
+                            'id',
                             'tahun',
 
                             ['class' => 'yii\grid\ActionColumn'],
