@@ -65,6 +65,12 @@ $this->title = $model->nama;
            'class' => 'btn btn-labeled btn-info m-b-5 pull-left',
            'title' => 'Back'
        ]) ?>&nbsp;
+          <?= Html::a('Print',
+       ['/surat/print','id'=>$model->id],
+       [
+           'class' => 'btn btn-primary',
+           'title' => 'Print'
+       ]) ?>
          
     </p>
 <center><?php echo Html::img(Yii::$app->params['front']."/uploads/surat.png", ["width"=>"1000","class"=>"img-responsive"]);?></center>
